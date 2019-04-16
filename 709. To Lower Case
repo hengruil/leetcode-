@@ -1,0 +1,31 @@
+'''
+Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.
+
+ 
+
+Example 1:
+
+Input: "Hello"
+Output: "hello"
+Example 2:
+
+Input: "here"
+Output: "here"
+Example 3:
+
+Input: "LOVELY"
+Output: "lovely"
+'''
+class Solution:
+    def toLowerCase(self, str: str) -> str:
+        list1 = list(str)
+        for i in range(len(list1)):
+            if 65<=ord(list1[i])<=90:
+                list1[i] = chr(ord(list1[i])+32)
+            else:
+                pass
+        return ''.join(list1)
+
+******************
+chr()与 ord（）
+ascii 小写字母从97 大写字母从65
