@@ -1,0 +1,42 @@
+'''
+Given two arrays, write a function to compute their intersection.
+
+Example 1:
+
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2,2]
+Example 2:
+
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [4,9]
+Note:
+
+Each element in the result should appear as many times as it shows in both arrays.
+The result can be in any order.
+'''
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        d1={}
+        d2={}
+        x =[]
+        for i in nums1:
+            if i not in d1:
+                d1[i] = 1
+            else:
+                d1[i] += 1
+        for i in nums2:
+            if i not in d2:
+                d2[i] = 1
+            else:
+                d2[i] += 1
+    #print(d1)
+    #print(d2)
+        for key,values in d1.items():
+            if key in d2:
+                value = min(d1[key],d2[key])
+                while(value>0):
+                    x.append(key)
+                    value -=1
+            else:
+                    continue
+        return x
